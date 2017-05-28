@@ -1,0 +1,19 @@
+info:
+  component: reading list application
+
+security:
+  user:
+    name: admin
+    password: s3cr3t
+    role: ADMIN
+
+error:
+  whitelabel:
+    enabled: false
+
+amazon:
+  associate_id: habuma-20
+
+logging:
+  level:
+    root: DEBUG
