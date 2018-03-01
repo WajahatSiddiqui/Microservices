@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: eureka-discovery-server
+
+info:
+  component: eureka discovery server
+
+server:
+  port: 8071
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+zuul:
+  prefix: /api
+  routes:
+    db-service:
+      path: /db-service/**
+      url: http://localhost:8010
+    stock-service:
+      path: /stock-service/**
+      url: http://localhost:8011
+    quote-maintainence-service:
+      path: /quote-main/**
+      url: http://localhost:8012

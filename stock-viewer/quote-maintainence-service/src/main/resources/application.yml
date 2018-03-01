@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: quote-maintainence-service
+info:
+  component: quote maintainence service
+
+server:
+  port: 8012
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10

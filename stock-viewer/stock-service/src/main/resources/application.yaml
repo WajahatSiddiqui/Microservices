@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: stock-service
+
+
+info:
+  component: stock service
+
+server:
+  port: 8011
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
