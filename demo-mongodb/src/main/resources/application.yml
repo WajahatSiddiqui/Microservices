@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Mongo DB Example
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mongo
+      repositories:
+        enable: true
