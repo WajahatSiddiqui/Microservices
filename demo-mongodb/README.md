@@ -16,3 +16,23 @@ $ mongod --dbpath <path_to_folder_where_mongodb_will_store_data>
 
 #GET http://localhost:8080/api/users
 [{"id":1,"name":"Wajahat","email":"wajahat.s@xyz.com","teamName":null},{"id":2,"name":"Siddiqui","email":"siddiqui.w@xyz.com","teamName":null}]
+
+
+#Mongo db shell
+> use mongo
+switched to db mongo
+> show collections
+user
+> db.user.find().pretty()
+{
+        "_id" : NumberLong(1),
+        "name" : "Wajahat",
+        "email" : "wajahat.s@xyz.com",
+        "_class" : "com.wajahat.mongodb.demomongodb.document.User"
+}
+{
+        "_id" : NumberLong(2),
+        "name" : "Siddiqui",
+        "email" : "siddiqui.w@xyz.com",
+        "_class" : "com.wajahat.mongodb.demomongodb.document.User"
+}

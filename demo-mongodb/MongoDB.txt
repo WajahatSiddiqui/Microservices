@@ -1,0 +1,177 @@
+Tables - Documents - BSON
+NoSQL Non Relational DB
+ref to link between various documents
+ + Quick and easy to make iterations on schema
+ + more scalable and better performance
+ + Object Oriented
+Agile development
+ Accomodates large volumes of structured and semi structured and unstructured data
+ Schema can be changed easily	
+
+Document - A record in mongo db and basic unit of data in mongo db which exists as bson
+Collections - Grouping of MongoDB documents, typically all documents in collection have similar or related purpose
+start cmd.exe open another terminal 
+
+Installation
+---------------
+sudo apt-get install mongod
+sudo apt-get install mongodb-clients
+
+To run the mongodb
+--------------------
+$ mongod
+
+To connect to mongo db with a shell
+-------------------------------------
+$ mongo 
+
+To list of all dbs
+--------------------
+$ Show dbs
+
+Use the db
+--------------------
+use <database_name>
+
+To list all the collections
+------------------------------
+show collections
+
+To check inside collection
+-----------------------------
+To check inside collections
+db.<collection_name>.find()
+
+bson will have quotations surronding key and value pairs
+
+
+{
+ firstname: "bill",
+ lastname: "cruz"
+}
+
+Pretty Print
+--------------
+db.<collection_name>.find().pretty()
+
+Mongo Shell Command
+---------------------
+use example
+db.createCollection("cars")
+show collections
+db.car.insert({
+name:'honda',
+make:'accord',
+year:'2010'
+})
+
+db.car.find().pretty()
+
+db.car.update({
+name:'honda'
+ },
+ {$set:{
+   name:'ford'
+   }
+  })
+  
+db.car.find().pretty()
+
+adding to a document
+---------------------
+db.car.update({
+name:'ford'
+ },
+ {$set:{
+   transmission:
+   }
+  }, {$upsert: true})
+  
+remove the entire collection
+-------------------------------
+db.car.remove
+
+db.car.remove({name:'ford'})
+
+for loop
+-----------
+for (var i = 0; i < 10; i++) {db.things.insert({"x":i})}
+db.things.find()
+
+Datatypes
+  String     name:
+  Number     likes:
+  Date       timeStamp:
+  Array		 tags: or tags:[]
+  Boolean    published:
+  ObjectId   _creator:Schema.ObjectId
+  
+db.car.insert({
+    name: 'honda',
+    make: 'accord',
+    year: '2010'
+})
+
+db.car.update({
+    name: 'honda'
+    },
+    { $set: {
+     name: 'ford'
+    }
+})
+
+db.car.update({
+    name: 'ford'
+    },
+    { $set: {
+     transmission: 'automatic'
+    }
+}, {$upsert: true})
+
+
+db.users.insert({
+    name: 'jo',
+    email: 'me5@me.com',
+    password: '444',
+    role: 'admin'
+})
+
+db.student.insert({
+    name: 'Joe',
+    undergrad: true,
+    units: 9,
+    classes: ['geography', 'math', 'journalism']
+})
+
+db.student.insert({
+    name: 'Jane',
+    undergrad: false,
+    units: 12,
+    classes: ['geography', 'science', 'journalism', 'history']
+})
+
+db.student.insert({
+    name: 'Kevin',
+    undergrad: true,
+    units: 3,
+    classes: ['geography']
+})
+
+db.student.insert({
+    name: 'Rachel',
+    undergrad: false,
+    units: 6,
+    classes: ['geography', 'history']
+})
+
+db.student.find({})
+db.student.find({'name': 'Rachel'})
+db.student.find({units: {$gt: 6}})
+db.student.find({units: {$lt: 7}})
+db.student.find({classes: {$in: ['history']}})
+
+db.student.find({classes: {$in: ['history']}}).sort({units: -1})    // ascending
+db.student.find({}).sort({name: 1})    // descending
+
+db.student.find({}).sort({name: 1}).limit(2)
+
